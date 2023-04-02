@@ -1,0 +1,38 @@
+@import "../../variables";
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $primary-background-light;
+  height: 10vh;
+  padding: 0 5rem;
+  margin-bottom: 2rem;
+  box-shadow: -9px -3px 25px -5px rgba(190, 191, 191, 0.75);
+  h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  button {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    height: 30px;
+    gap: 15px;
+    padding: 5px;
+    border: none;
+    cursor: pointer;
+    span {
+      font-weight: bold;
+      font-size: 0.7rem;
+
+      width: auto;
+    }
+  }
+  img {
+    height: 20px;
+  }
+  span {
+    width: 150px;
+  }
+}

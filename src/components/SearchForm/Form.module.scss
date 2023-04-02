@@ -1,0 +1,34 @@
+@import "../../variables";
+
+form {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  img {
+    height: 13px;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+  }
+  input[type="search"] {
+    width: 40%;
+    font-size: 0.7rem;
+    border: none;
+    padding: 0.8rem 2.5rem;
+    box-shadow: $box-shadow;
+  }
+  input[type="search"]:focus {
+    outline: none;
+  }
+}
+
+.filter-select {
+  font-size: 0.7rem;
+  padding: 0.8rem 1.5rem;
+  font-weight: 600;
+  border: none;
+  box-shadow: $box-shadow;
+}
+.filter-select:focus {
+  outline: none;
+}
