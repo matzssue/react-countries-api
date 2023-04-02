@@ -1,0 +1,7 @@
+.countries-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 100vw;
+  gap: 25px;
+  margin-top: 3rem;
+}

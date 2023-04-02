@@ -1,0 +1,24 @@
+// COLORS
+
+$primary-elements-dark: hsl(209, 23%, 22%);
+$primary-background-dark: hsl(207, 26%, 17%);
+$primary-text-dark: hsl(200, 15%, 8%);
+$primary-text-light: hsl(0, 0%, 52%);
+$primary-background-light: hsl(0, 0%, 98%);
+$primary-elements-light: hsl(0, 0%, 100%);
+$primary-shadow-light: rgba(190, 191, 191, 0.75);
+
+//
+
+// STYLES
+
+$box-shadow: 3px 8px 24px -5px rgba(190, 191, 191, 0.75);
+
+// - Dark Blue (Dark Mode Elements): hsl(209, 23%, 22%)
+// - Very Dark Blue (Dark Mode Background): hsl(207, 26%, 17%)
+// - Very Dark Blue (Light Mode Text): hsl(200, 15%, 8%)
+// - Dark Gray (Light Mode Input): hsl(0, 0%, 52%)
+// - Very Light Gray (Light Mode Background): hsl(0, 0%, 98%)
+// - White (Dark Mode Text & Light Mode Elements): hsl(0, 0%, 100%)
+
+// MIXINS
