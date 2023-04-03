@@ -1,29 +1,49 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import CountriesContext from "../../store/countries-context";
 import Country from "./Country";
 import styles from "./CountriesList.module.scss";
 
 const CountriesList = () => {
-  const { countries } = useContext(CountriesContext);
-  console.log(countries);
+  const { countries, filters, isLoading } = useContext(CountriesContext);
 
-  let content = <div>Loading...</div>;
-
-  if (countries.length > 0) {
-    content = countries.map((country) => {
-      return (
-        <Country
-          key={country.name}
-          flagImg={country.flagImg}
-          name={country.name}
-          population={country.population}
-          region={country.region}
-          capital={country.capital}
-        />
-      );
-    });
+  if (isLoading) {
+    return <div className={styles.spinner}></div>;
   }
 
-  return <div className={styles["countries-container"]}>{content}</div>;
+  const filteredCountries = countries.filter((country) => {
+    if (filters.filterName !== "" && filters.filterRegion !== "") {
+      return (
+        country.name.toLowerCase().includes(filters.filterName.toLowerCase()) &&
+        country.region.toLowerCase() === filters.filterRegion.toLowerCase()
+      );
+    } else if (filters.filterName !== "") {
+      return country.name
+        .toLowerCase()
+        .includes(filters.filterName.toLowerCase());
+    } else if (filters.filterRegion !== "") {
+      return (
+        country.region.toLowerCase() === filters.filterRegion.toLowerCase()
+      );
+    }
+    return true;
+  });
+
+  const countriesList =
+    filteredCountries.length > 0 ? filteredCountries : countries;
+
+  const renderedList = countriesList.map((country) => {
+    return (
+      <Country
+        key={country.name}
+        flagImg={country.flagImg}
+        name={country.name}
+        population={country.population}
+        region={country.region}
+        capital={country.capital}
+      />
+    );
+  });
+  return <div className={styles["countries-container"]}>{renderedList}</div>;
 };
+
 export default CountriesList;

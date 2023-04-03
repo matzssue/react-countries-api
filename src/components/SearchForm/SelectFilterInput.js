@@ -1,6 +1,6 @@
 const SelectFilterInput = (props) => {
   return (
-    <select className={props.className}>
+    <select onChange={props.onChange} className={props.className}>
       <option value="">Filter by region</option>
       <option value="Africa">Africa</option>
       <option value="America">America</option>

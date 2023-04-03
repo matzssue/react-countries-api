@@ -4,13 +4,15 @@
   box-shadow: $box-shadow;
   background-color: $primary-elements-light;
   padding-bottom: 1.5rem;
-  img {
-    border-radius: 5px;
-    height: auto;
-    width: 100%;
-    margin-bottom: 1rem;
-  }
+  cursor: pointer;
 
+  img {
+    display: block;
+    width: 100%;
+    max-width: max-content;
+    height: 190px;
+    border-radius: 5px;
+  }
   h2 {
     font-size: 1rem;
     padding: 0.5rem 1rem;
