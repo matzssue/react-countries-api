@@ -3,7 +3,7 @@ import CountriesContext from "../../store/countries-context";
 import Country from "./Country";
 import styles from "./CountriesList.module.scss";
 
-const CountriesList = () => {
+const CountriesList = (props) => {
   const { countries, filters, isLoading } = useContext(CountriesContext);
 
   if (isLoading) {
@@ -40,6 +40,7 @@ const CountriesList = () => {
         population={country.population}
         region={country.region}
         capital={country.capital}
+        onClick={props.onClick}
       />
     );
   });
