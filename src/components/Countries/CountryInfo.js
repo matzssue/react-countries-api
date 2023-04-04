@@ -1,24 +1,23 @@
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import CountriesContext from "../../store/countries-context";
 import styles from "./CountryInfo.module.scss";
-const CountryInfo = (props) => {
-  const { setShowCountryInfo, countries, isLoading, countryInfo } =
-    useContext(CountriesContext);
-  console.log(countryInfo);
+const CountryInfo = () => {
+  const { setShowCountryInfo, countryInfo } = useContext(CountriesContext);
+
   const backToCountries = () => {
     setShowCountryInfo(false);
   };
 
   return (
     <div className={styles.container}>
-      <div>
-        <button onClick={backToCountries}></button>
+      <div className={styles["left-content"]}>
+        <button onClick={backToCountries}>&#8592; Back</button>
         <img
           src={countryInfo[0].flagImg}
           alt={`${countryInfo[0].name} flag`}
         ></img>
       </div>
-      <section>
+      <section className={styles["right-content"]}>
         <div>
           <h3>{countryInfo[0].name}</h3>
 
@@ -43,7 +42,7 @@ const CountryInfo = (props) => {
             {countryInfo[0].capital}
           </p>
         </div>
-        <div>
+        <div className={styles["right-content__element"]}>
           <p>
             <strong>Top Level Domain: </strong>
             {countryInfo[0].domain}
@@ -54,7 +53,7 @@ const CountryInfo = (props) => {
           </p>
           <p>
             <strong>Languages: </strong>
-            {countryInfo.languages}
+            {countryInfo[0].languages}
           </p>
         </div>
         <div>

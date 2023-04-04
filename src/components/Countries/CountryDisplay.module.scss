@@ -1,0 +1,11 @@
+@import "../../variables";
+
+main {
+  margin: 0 5rem;
+}
+main.dark {
+  background-color: $primary-background-dark;
+}
+body.dark {
+  background-color: $primary-background-dark;
+}

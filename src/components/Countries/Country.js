@@ -1,9 +1,12 @@
 import styles from "./Country.module.scss";
-
+import { useContext } from "react";
+import CountriesContext from "../../store/countries-context";
 const Country = (props) => {
+  const { isDarkMode } = useContext(CountriesContext);
+
   return (
     <div
-      className={styles.container}
+      className={isDarkMode ? styles.dark : styles.container}
       role="button"
       onClick={props.onClick}
       data-country={props.name}
