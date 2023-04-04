@@ -45,7 +45,7 @@ const CountriesList = (props) => {
       );
     })
   ) : (
-    <div className={styles["no-results"]}>No results found.</div>
+    <div>No results found.</div>
   );
 
   return <div className={styles["countries-container"]}>{renderedList}</div>;
