@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import CountriesContext from "./countries-context";
 const CountriesProvider = (props) => {
   const [countries, setCountries] = useState([]);
@@ -11,7 +11,7 @@ const CountriesProvider = (props) => {
   const [countryInfo, setCountryInfo] = useState([]);
   const [isDarkMode, setIsDarkMode] = useState(false);
 
-  const fetchCountries = async () => {
+  const fetchCountries = useCallback(async () => {
     setLoading(true);
     try {
       const response = await fetch("https://restcountries.com/v3.1/all");
@@ -36,17 +36,17 @@ const CountriesProvider = (props) => {
             : "",
         };
       });
-      console.log(newData);
+
       setLoading(false);
       return setCountries(newData);
     } catch (error) {
       console.log(error);
     }
-  };
+  }, [setCountries, setLoading]);
 
   useEffect(() => {
     fetchCountries();
-  }, []);
+  }, [fetchCountries]);
 
   const addNameFilter = (inputValue) => {
     if (loading) return;
@@ -64,11 +64,11 @@ const CountriesProvider = (props) => {
     filters: filters,
     showCountryInfo: showCountryInfo,
     countryInfo: countryInfo,
+    isDarkMode: isDarkMode,
     setShowCountryInfo: setShowCountryInfo,
     setCountryInfo: setCountryInfo,
     addRegionFilter: addRegionFilter,
     addNameFilter: addNameFilter,
-    isDarkMode: isDarkMode,
     setIsDarkMode: setIsDarkMode,
   };
 
