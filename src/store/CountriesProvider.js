@@ -38,9 +38,9 @@ const CountriesProvider = (props) => {
       });
 
       setLoading(false);
-      return setCountries(newData);
+      setCountries(newData);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }, [setCountries, setLoading]);
 
@@ -50,12 +50,18 @@ const CountriesProvider = (props) => {
 
   const addNameFilter = (inputValue) => {
     if (loading) return;
-    setFilters({ ...filters, filterName: inputValue });
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      filterName: inputValue,
+    }));
   };
 
   const addRegionFilter = (inputValue) => {
     if (loading) return;
-    setFilters({ ...filters, filterRegion: inputValue });
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      filterRegion: inputValue,
+    }));
   };
 
   const countriesContext = {
