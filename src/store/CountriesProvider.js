@@ -21,7 +21,7 @@ const CountriesProvider = (props) => {
           flagImg: country.flags.png,
           name: country.name.common,
           nativeName: country.name.official,
-          population: country.population,
+          population: country.population.toLocaleString(),
           region: country.region,
           subregion: country.subregion,
           capital: country.capital,

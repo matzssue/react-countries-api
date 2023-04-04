@@ -21,12 +21,18 @@
       border-radius: 5px;
       box-shadow: 0px 0px 4px 1px rgb(197 210 225 / 80%);
       cursor: pointer;
+      &.dark {
+        background-color: $primary-elements-dark;
+        color: $primary-text-dark;
+        box-shadow: $box-shadow-dark;
+      }
     }
   }
   .right-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding-top: 3.5rem;
+
     h3 {
       padding-bottom: 1rem;
     }
@@ -39,6 +45,13 @@
 
     .right-content__element {
       padding-top: 2.5rem;
+    }
+
+    &.dark {
+      color: $primary-text-dark;
+      p {
+        color: $primary-text-dark;
+      }
     }
   }
 }

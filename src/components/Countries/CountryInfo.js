@@ -2,7 +2,8 @@ import { useContext } from "react";
 import CountriesContext from "../../store/countries-context";
 import styles from "./CountryInfo.module.scss";
 const CountryInfo = () => {
-  const { setShowCountryInfo, countryInfo } = useContext(CountriesContext);
+  const { setShowCountryInfo, countryInfo, isDarkMode } =
+    useContext(CountriesContext);
 
   const backToCountries = () => {
     setShowCountryInfo(false);
@@ -11,13 +12,22 @@ const CountryInfo = () => {
   return (
     <div className={styles.container}>
       <div className={styles["left-content"]}>
-        <button onClick={backToCountries}>&#8592; Back</button>
+        <button
+          className={isDarkMode ? styles.dark : ""}
+          onClick={backToCountries}
+        >
+          &#8592; Back
+        </button>
         <img
           src={countryInfo[0].flagImg}
           alt={`${countryInfo[0].name} flag`}
         ></img>
       </div>
-      <section className={styles["right-content"]}>
+      <section
+        className={`${styles["right-content"]} ${
+          isDarkMode ? styles["dark"] : ""
+        }`}
+      >
         <div>
           <h3>{countryInfo[0].name}</h3>
 
