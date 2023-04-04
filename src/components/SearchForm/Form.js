@@ -24,9 +24,9 @@ const Form = () => {
       <img src={searchIcon} />
       <SelectFilterInput
         onChange={searchCountryByRegion}
-        className={
-          isDarkMode ? styles["filter-select-dark"] : styles["filter-select"]
-        }
+        className={`${styles["filter-select"]} ${
+          isDarkMode ? styles["dark"] : ""
+        }`}
       />
     </form>
   );

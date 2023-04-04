@@ -31,3 +31,8 @@ p {
   box-shadow: $box-shadow-dark;
   cursor: pointer;
 }
+@media only screen and (max-width: 480px) {
+  img {
+    height: 170px;
+  }
+}
