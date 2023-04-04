@@ -28,22 +28,26 @@ const CountriesList = (props) => {
     return true;
   });
 
-  const countriesList =
-    filteredCountries.length > 0 ? filteredCountries : countries;
+  const countriesList = filteredCountries.length > 0 ? filteredCountries : null;
 
-  const renderedList = countriesList.map((country) => {
-    return (
-      <Country
-        key={country.name}
-        flagImg={country.flagImg}
-        name={country.name}
-        population={country.population}
-        region={country.region}
-        capital={country.capital}
-        onClick={props.onClick}
-      />
-    );
-  });
+  const renderedList = countriesList ? (
+    countriesList.map((country) => {
+      return (
+        <Country
+          key={country.name}
+          flagImg={country.flagImg}
+          name={country.name}
+          population={country.population}
+          region={country.region}
+          capital={country.capital}
+          onClick={props.onClick}
+        />
+      );
+    })
+  ) : (
+    <div className={styles["no-results"]}>No results found.</div>
+  );
+
   return <div className={styles["countries-container"]}>{renderedList}</div>;
 };
 
