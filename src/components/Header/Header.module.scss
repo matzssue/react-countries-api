@@ -36,3 +36,38 @@ header {
     width: 150px;
   }
 }
+
+header.dark {
+  background-color: $primary-elements-dark;
+  color: $primary-text-dark;
+  span {
+    color: $primary-text-dark;
+  }
+  img {
+    color: $primary-text-dark;
+  }
+}
+
+.dark {
+  background-color: $primary-background-dark;
+  box-shadow: -9px -3px 25px -5px rgba(19, 19, 19, 0.75);
+}
+
+@media only screen and (max-width: 768px) {
+  header {
+    padding: 0 3rem;
+    h1 {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+  }
+}
+@media only screen and (max-width: 480px) {
+  header {
+    padding: 0 2rem;
+    h1 {
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+  }
+}

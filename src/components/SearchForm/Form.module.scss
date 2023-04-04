@@ -6,6 +6,7 @@ form {
   position: relative;
   img {
     height: 13px;
+    width: 13px;
     position: absolute;
     top: 15px;
     left: 15px;
@@ -22,13 +23,50 @@ form {
   }
 }
 
+form.dark {
+  input[type="search"] {
+    background-color: $primary-elements-dark;
+    box-shadow: $box-shadow-dark;
+    color: $primary-text-dark;
+  }
+}
+
 .filter-select {
   font-size: 0.7rem;
   padding: 0.8rem 1.5rem;
   font-weight: 600;
   border: none;
   box-shadow: $box-shadow;
+  cursor: pointer;
 }
-.filter-select:focus {
+
+.filter-select-dark {
+  font-size: 0.7rem;
+  padding: 0.8rem 1.5rem;
+  font-weight: 600;
+  border: none;
+  background-color: $primary-elements-dark;
+  color: $primary-text-dark;
+  box-shadow: $box-shadow-dark;
+  cursor: pointer;
+}
+
+.filter-select:focus,
+.filter-select-dark:focus {
   outline: none;
+}
+@media only screen and (max-width: 480px) {
+  form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    input[type="search"] {
+      width: 100%;
+    }
+  }
+  .filter-select {
+    width: 50%;
+    font-size: 0.6rem;
+    padding: 0.7rem 1.2rem;
+  }
 }

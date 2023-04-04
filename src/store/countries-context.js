@@ -10,6 +10,7 @@ const CountriesContext = React.createContext({
   addRegionFilter: () => {},
   setShowCountryInfo: () => {},
   setCountryInfo: () => {},
+  isDarkMode: () => {},
 });
 
 export default CountriesContext;

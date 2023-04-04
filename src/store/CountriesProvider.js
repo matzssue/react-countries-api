@@ -9,6 +9,7 @@ const CountriesProvider = (props) => {
   });
   const [showCountryInfo, setShowCountryInfo] = useState(false);
   const [countryInfo, setCountryInfo] = useState([]);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const fetchCountries = async () => {
     setLoading(true);
@@ -16,7 +17,6 @@ const CountriesProvider = (props) => {
       const response = await fetch("https://restcountries.com/v3.1/all");
       const data = await response.json();
       const newData = data.map((country) => {
-        console.log(country.name.official);
         return {
           flagImg: country.flags.png,
           name: country.name.common,
@@ -27,9 +27,13 @@ const CountriesProvider = (props) => {
           capital: country.capital,
           domain: country.tld,
           currencies: country.currencies
-            ? Object.values(country.currencies).map((currency) => currency.name)
+            ? Object.values(country.currencies)
+                .map((currency) => currency.name)
+                .join(", ")
             : [],
-          languages: country.languages,
+          languages: country.languages
+            ? Object.values(country.languages).join(", ")
+            : "",
         };
       });
       console.log(newData);
@@ -64,6 +68,8 @@ const CountriesProvider = (props) => {
     setCountryInfo: setCountryInfo,
     addRegionFilter: addRegionFilter,
     addNameFilter: addNameFilter,
+    isDarkMode: isDarkMode,
+    setIsDarkMode: setIsDarkMode,
   };
 
   return (

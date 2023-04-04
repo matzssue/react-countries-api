@@ -4,18 +4,18 @@ import styles from "./Form.module.scss";
 import SelectFilterInput from "./SelectFilterInput";
 import CountriesContext from "../../store/countries-context";
 const Form = () => {
-  const countryCtx = useContext(CountriesContext);
+  const { addNameFilter, addRegionFilter, isDarkMode } =
+    useContext(CountriesContext);
 
   const searchCountryHandler = (e) => {
-    countryCtx.addNameFilter(e.target.value);
-    console.log(countryCtx.filters);
+    addNameFilter(e.target.value);
   };
   const searchCountryByRegion = (e) => {
-    countryCtx.addRegionFilter(e.target.value);
+    addRegionFilter(e.target.value);
   };
 
   return (
-    <form>
+    <form className={isDarkMode ? styles.dark : styles.form}>
       <input
         onChange={searchCountryHandler}
         type="search"
@@ -24,7 +24,9 @@ const Form = () => {
       <img src={searchIcon} />
       <SelectFilterInput
         onChange={searchCountryByRegion}
-        className={styles["filter-select"]}
+        className={
+          isDarkMode ? styles["filter-select-dark"] : styles["filter-select"]
+        }
       />
     </form>
   );
