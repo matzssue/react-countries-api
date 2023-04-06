@@ -4,12 +4,16 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding: 1rem 0;
+
+  height: 80vh;
   .left-content {
     display: flex;
     flex-direction: column;
     width: 70%;
     gap: 35px;
-
+    img {
+      height: auto;
+    }
     button {
       max-width: 100px;
       border-style: groove;
@@ -42,7 +46,9 @@
       color: $primary-text-light;
       word-wrap: break-word;
     }
-
+    .borders {
+      margin-top: 5rem;
+    }
     .right-content__element {
       padding-top: 2.5rem;
     }

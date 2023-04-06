@@ -51,6 +51,9 @@ const CountryInfo = () => {
             <strong>Capital: </strong>
             {countryInfo[0].capital}
           </p>
+          <p className={styles.borders}>
+            <strong>Border Countries</strong>
+          </p>
         </div>
         <div className={styles["right-content__element"]}>
           <p>
@@ -64,11 +67,6 @@ const CountryInfo = () => {
           <p>
             <strong>Languages: </strong>
             {countryInfo[0].languages}
-          </p>
-        </div>
-        <div>
-          <p>
-            <strong>Border Countries</strong>
           </p>
         </div>
       </section>
