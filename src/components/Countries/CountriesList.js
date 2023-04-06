@@ -4,7 +4,7 @@ import Country from "./Country";
 import styles from "./CountriesList.module.scss";
 
 const CountriesList = (props) => {
-  const { countries, filters, isLoading } = useContext(CountriesContext);
+  const { countries, filters, isLoading, error } = useContext(CountriesContext);
 
   if (isLoading) {
     return <div className={styles.spinner}></div>;
@@ -48,7 +48,11 @@ const CountriesList = (props) => {
     <div>No results found.</div>
   );
 
-  return <div className={styles["countries-container"]}>{renderedList}</div>;
+  return (
+    <div className={styles["countries-container"]}>
+      {!error && renderedList}
+    </div>
+  );
 };
 
 export default CountriesList;
