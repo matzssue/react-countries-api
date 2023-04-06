@@ -1,20 +1,26 @@
 import { useEffect, useState, useCallback } from "react";
 import CountriesContext from "./countries-context";
+
 const CountriesProvider = (props) => {
   const [countries, setCountries] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [countryInfo, setCountryInfo] = useState([]);
+  const [showCountryInfo, setShowCountryInfo] = useState(false);
   const [filters, setFilters] = useState({
     filterName: "",
     filterRegion: "",
   });
-  const [showCountryInfo, setShowCountryInfo] = useState(false);
-  const [countryInfo, setCountryInfo] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   const fetchCountries = useCallback(async () => {
     setLoading(true);
     try {
       const response = await fetch("https://restcountries.com/v3.1/all");
+
+      if (!response.ok) {
+        throw new Error("Sorry, Sometning went wrong");
+      }
       const data = await response.json();
       const newData = data.map((country) => {
         return {
@@ -40,7 +46,10 @@ const CountriesProvider = (props) => {
       setLoading(false);
       setCountries(newData);
     } catch (error) {
+      setLoading(false);
       console.error(error);
+      const errorMessage = <div>{error.message}</div>;
+      setError(errorMessage);
     }
   }, [setCountries, setLoading]);
 
@@ -71,11 +80,13 @@ const CountriesProvider = (props) => {
     showCountryInfo: showCountryInfo,
     countryInfo: countryInfo,
     isDarkMode: isDarkMode,
+    error: error,
     setShowCountryInfo: setShowCountryInfo,
     setCountryInfo: setCountryInfo,
     addRegionFilter: addRegionFilter,
     addNameFilter: addNameFilter,
     setIsDarkMode: setIsDarkMode,
+    setError: setError,
   };
 
   return (
