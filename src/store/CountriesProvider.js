@@ -55,7 +55,7 @@ const CountriesProvider = (props) => {
 
   useEffect(() => {
     fetchCountries();
-  }, [fetchCountries]);
+  }, []);
 
   const addNameFilter = (inputValue) => {
     if (loading) return;
@@ -74,19 +74,19 @@ const CountriesProvider = (props) => {
   };
 
   const countriesContext = {
-    countries: countries,
+    countries,
     isLoading: loading,
-    filters: filters,
-    showCountryInfo: showCountryInfo,
-    countryInfo: countryInfo,
-    isDarkMode: isDarkMode,
-    error: error,
-    setShowCountryInfo: setShowCountryInfo,
-    setCountryInfo: setCountryInfo,
-    addRegionFilter: addRegionFilter,
-    addNameFilter: addNameFilter,
-    setIsDarkMode: setIsDarkMode,
-    setError: setError,
+    filters,
+    showCountryInfo,
+    countryInfo,
+    isDarkMode,
+    error,
+    setShowCountryInfo,
+    setCountryInfo,
+    addRegionFilter,
+    addNameFilter,
+    setIsDarkMode,
+    setError,
   };
 
   return (

@@ -12,10 +12,11 @@ const CountriesList = (props) => {
 
   const filteredCountries = countries.filter((country) => {
     if (filters.filterName !== "" && filters.filterRegion !== "") {
-      return (
-        country.name.toLowerCase().includes(filters.filterName.toLowerCase()) &&
-        country.region.toLowerCase() === filters.filterRegion.toLowerCase()
-      );
+      return countries;
+      // return (
+      //   country.name.toLowerCase().includes(filters.filterName.toLowerCase()) &&
+      //   country.region.toLowerCase() === filters.filterRegion.toLowerCase()
+      // );
     } else if (filters.filterName !== "") {
       return country.name
         .toLowerCase()

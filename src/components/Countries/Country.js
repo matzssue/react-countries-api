@@ -1,28 +1,28 @@
 import styles from "./Country.module.scss";
 import { useContext } from "react";
 import CountriesContext from "../../store/countries-context";
-const Country = (props) => {
+const Country = ({ onClick, name, flagImg, region, population, capital }) => {
   const { isDarkMode } = useContext(CountriesContext);
 
   return (
     <div
       className={isDarkMode ? styles.dark : styles.container}
       role="button"
-      onClick={props.onClick}
-      data-country={props.name}
+      onClick={onClick}
+      data-country={pname}
     >
-      <img src={props.flagImg} alt={`${props.name} flag`} />
-      <h2>{props.name}</h2>
+      <img src={flagImg} alt={`${pname} flag`} />
+      <h2>{name}</h2>
       <p>
-        <strong>Pupulation: </strong> {props.population}
+        <strong>Pupulation: </strong> {population}
       </p>
       <p>
         <strong>Region: </strong>
-        {props.region}
+        {region}
       </p>
       <p>
         <strong>Capital: </strong>
-        {props.capital}
+        {capital}
       </p>
     </div>
   );

@@ -12,7 +12,7 @@ const Header = () => {
     document.body.classList.toggle(styles.dark);
   };
   return (
-    <header className={isDarkMode ? styles.dark : styles}>
+    <header className={isDarkMode ? styles.dark : ""}>
       <h1>Where is the world?</h1>
 
       <button onClick={switchModeHandler}>

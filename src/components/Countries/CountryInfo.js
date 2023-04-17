@@ -9,6 +9,8 @@ const CountryInfo = () => {
     setShowCountryInfo(false);
   };
 
+  const { flagImg } = countryInfo[0];
+
   return (
     <div className={styles.container}>
       <div className={styles["left-content"]}>
@@ -18,10 +20,7 @@ const CountryInfo = () => {
         >
           &#8592; Back
         </button>
-        <img
-          src={countryInfo[0].flagImg}
-          alt={`${countryInfo[0].name} flag`}
-        ></img>
+        <img src={flagImg} alt={`${countryInfo[0].name} flag`}></img>
       </div>
       <section
         className={`${styles["right-content"]} ${

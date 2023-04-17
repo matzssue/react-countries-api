@@ -6,7 +6,7 @@ import Form from "../SearchForm/Form";
 
 import styles from "./CountryDisplay.module.scss";
 
-const CountryDetails = () => {
+export const CountryDetails = () => {
   const {
     showCountryInfo,
     countries,
@@ -34,4 +34,3 @@ const CountryDetails = () => {
     </main>
   );
 };
-export default CountryDetails;
